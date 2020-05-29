@@ -146,6 +146,7 @@ func (coordinator *ReplicationCoordinator) sanitizeMongoDB() error {
 		}
 
 		// a conventional ReplicaSet should have local.oplog.rs collection
+		//检测源mongo实例是否存在oplog collection
 		if conf.Options.SyncMode != utils.VarSyncModeFull &&
 			// conf.Options.IncrSyncMongoFetchMethod == utils.VarIncrSyncMongoFetchMethodOplog &&
 			!conn.HasOplogNs() {
